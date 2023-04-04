@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191152823179",
+    "project_id": "ss-d-54e8a",
+    "storage_bucket": "ss-d-54e8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191152823179:android:d596de7a1148e290a76d8e",
+        "android_client_info": {
+          "package_name": "olev.traffic.tz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191152823179-qaoqvve9pracsmo5ks1gn5rtbn4rftth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiitBUX-COAntQYoAPcFpF0kpVtQKa0Q0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191152823179-qaoqvve9pracsmo5ks1gn5rtbn4rftth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
