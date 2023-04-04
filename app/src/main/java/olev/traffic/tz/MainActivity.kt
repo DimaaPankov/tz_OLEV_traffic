@@ -1,8 +1,10 @@
 package olev.traffic.tz
 
 import android.content.Context
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -18,26 +20,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-
         val fb = FirebaseRemoteConfig.getInstance()
         fb.fetchAndActivate()
             .addOnCompleteListener { status ->
                 if (status.isSuccessful) {
                     val url = FirebaseRemoteConfig.getInstance().getString("getUrl")
-
                     if (url.isNotBlank()) {
-
                         if ((ModelPhone.getPhoneModel()!!.contains("Google Pixel", ignoreCase = true)
                             or ModelPhone.getPhoneModel()!!.contains("Pixel", ignoreCase = true)
                             or ModelPhone.getPhoneModel()!!.contains("Google", ignoreCase = true))
                         ) {
                             Log.d("Model phone", ModelPhone.getPhoneModel()!!)
-                             binding.CVnoInternet.isVisible = true
+                            binding.IVlogo.setImageResource(R.drawable.wifi)
+                            binding.TVOLEVTraffic.text = "no signal"
                                } else {
+                            Handler().postDelayed({binding.cvzug.isVisible = false},3000L)
                             Log.d("sasa", ModelPhone.getPhoneModel()!!)
-
-                            binding.CVnoInternet.isVisible = false
                             with(binding.webview) {
                                 settings.setLoadsImagesAutomatically(true)
                                 webViewClient = WebViewClient()
@@ -52,18 +50,18 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     }else{
-                        binding.CVnoInternet.isVisible = true
+                        binding.cvzug.isVisible = true
+                        binding.IVlogo.setImageResource(R.drawable.wifi)
+                        binding.TVOLEVTraffic.text = "no signal"
                     }
 
                 }else{
-                    binding.CVnoInternet.isVisible = true
+                    binding.cvzug.isVisible = true
+                    binding.IVlogo.setImageResource(R.drawable.wifi)
+                    binding.TVOLEVTraffic.text = "no signal"
                 }
 
             }
     }
-
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        return super.onCreateView(name, context, attrs)
-            }
 }
 
